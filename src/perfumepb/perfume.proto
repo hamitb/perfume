@@ -1,0 +1,30 @@
+syntax = "proto3";
+package perfume;
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
+message Entry {
+  string id = 1 [(gogoproto.moretags) = "bson:\"_id,omitempty\""];
+  int64 created_at = 2;
+  string link = 3;
+  string title = 4;
+  repeated string labels = 5;
+}
+
+message GetEntryListReq {
+}
+
+message GetEntryReq {
+  string id = 1;
+}
+
+message EntryListResponse {
+  repeated Entry entries = 1;
+}
+
+service PerfumeService{
+  rpc CreateEntry(Entry) returns (Entry) {}
+  rpc DeleteEntry(Entry) returns (Entry) {}
+  rpc UpdateEntry(Entry) returns (Entry) {}
+  rpc GetEntryList(GetEntryListReq) returns (EntryListResponse) {}
+  rpc GetEntryList(GetEntryReq) returns (Entry) {}
+}
