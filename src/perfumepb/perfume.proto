@@ -1,5 +1,5 @@
 syntax = "proto3";
-package perfume;
+package perfumepb;
 import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 
 message Entry {
@@ -26,5 +26,5 @@ service PerfumeService{
   rpc DeleteEntry(Entry) returns (Entry) {}
   rpc UpdateEntry(Entry) returns (Entry) {}
   rpc GetEntryList(GetEntryListReq) returns (EntryListResponse) {}
-  rpc GetEntryList(GetEntryReq) returns (Entry) {}
+  rpc GetEntry(GetEntryReq) returns (Entry) {}
 }
