@@ -4,7 +4,7 @@ import "fmt"
 
 const (
 	DefaultGrpcPort = 18870
-	DefaultDBAddr   = "todo"
+	DefaultDBAddr   = "localhost:27017"
 )
 
 type Config struct {

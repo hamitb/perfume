@@ -37,7 +37,7 @@ func (s *server) Healthy() error {
 func (s *server) Listen() error {
 	grpcPort := s.cnf.GetGrpcPortString()
 	// Listen
-	lis, err := net.Listen("", grpcPort)
+	lis, err := net.Listen("tcp", grpcPort)
 	if err != nil {
 		logrus.Fatalf("server.go: Failed to listen %v for grpc", err)
 	}
