@@ -1,6 +1,7 @@
 package storage
 
 import (
+	"errors"
 	"time"
 
 	mgo "gopkg.in/mgo.v2"
@@ -9,6 +10,13 @@ import (
 type MongoDBDriver struct {
 	Session *mgo.Session
 }
+
+var (
+	ErrorNotFound          = mgo.ErrNotFound
+	ErrorInvalidLink       = errors.New("Invalid Link")
+	ErrorInvalidId         = errors.New("Invalid Id")
+	ErrorInvalidInsertData = errors.New("Invalid insert data")
+)
 
 func NewMongoDriver(url string) (*MongoDBDriver, error) {
 	s, err := mgo.Dial(url)

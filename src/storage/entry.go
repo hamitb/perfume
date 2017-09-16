@@ -37,6 +37,12 @@ func (md *MongoDBDriver) UpdateEntry(in *perfumepb.Entry) error {
 	})
 }
 
+func (md *MongoDBDriver) DeleteEntry(in *perfumepb.Entry) error {
+	collection := md.Session.DB(DatabaseName).C(EntryCollection)
+
+	return collection.RemoveId(in.Id)
+}
+
 func (md *MongoDBDriver) GetEntryList() (*perfumepb.EntryListResponse, error) {
 	collection := md.Session.DB(DatabaseName).C(EntryCollection)
 
