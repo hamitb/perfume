@@ -20,10 +20,14 @@ func (md *MongoDBDriver) GetEntry(entryId string) (*perfumepb.Entry, error) {
 }
 
 func (md *MongoDBDriver) AddEntry(in *perfumepb.Entry) error {
+	if in.Link == "" {
+		return ErrorInvalidLink
+	}
 	collection := md.Session.DB(DatabaseName).C(EntryCollection)
-	id := bson.NewObjectId()
 
-	in.Id = id.Hex()
+	id := bson.NewObjectId().Hex()
+	in.Id = id
+
 	in.CreatedAt = millisecondNow()
 
 	return collection.Insert(in)
@@ -38,6 +42,10 @@ func (md *MongoDBDriver) UpdateEntry(in *perfumepb.Entry) error {
 }
 
 func (md *MongoDBDriver) DeleteEntry(in *perfumepb.Entry) error {
+	if in.Id == "" {
+		return ErrorInvalidId
+	}
+
 	collection := md.Session.DB(DatabaseName).C(EntryCollection)
 
 	return collection.RemoveId(in.Id)

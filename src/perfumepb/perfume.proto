@@ -4,7 +4,7 @@ import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 
 message Entry {
   string id = 1 [(gogoproto.moretags) = "bson:\"_id,omitempty\""];
-  int64 created_at = 2;
+  int64 created_at = 2 [(gogoproto.moretags) = "bson:\"created_at,omitempty\""];
   string link = 3;
   string title = 4;
   repeated string labels = 5;
