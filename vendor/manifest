@@ -9,6 +9,12 @@
 			"path": "/compute/metadata"
 		},
 		{
+			"importpath": "github.com/go-resty/resty",
+			"repository": "https://github.com/go-resty/resty",
+			"revision": "f8e1383e6f5517d12177adc8396e39862e2503e2",
+			"branch": "master"
+		},
+		{
 			"importpath": "github.com/gogo/protobuf/gogoproto",
 			"repository": "https://github.com/gogo/protobuf",
 			"revision": "2adc21fd136931e0388e278825291678e1d98309",
@@ -43,6 +49,13 @@
 			"path": "/gomock"
 		},
 		{
+			"importpath": "github.com/golang/protobuf/jsonpb",
+			"repository": "https://github.com/golang/protobuf",
+			"revision": "ae59567b9aab61b50b2590679a62c3c044030b61",
+			"branch": "master",
+			"path": "/jsonpb"
+		},
+		{
 			"importpath": "github.com/golang/protobuf/proto",
 			"repository": "https://github.com/golang/protobuf",
 			"revision": "17ce1425424ab154092bbb43af630bd647f3bb0d",
@@ -57,11 +70,37 @@
 			"path": "/protoc-gen-go/descriptor"
 		},
 		{
+			"importpath": "github.com/golang/protobuf/protoc-gen-go/generator",
+			"repository": "https://github.com/golang/protobuf",
+			"revision": "ae59567b9aab61b50b2590679a62c3c044030b61",
+			"branch": "master",
+			"path": "/protoc-gen-go/generator"
+		},
+		{
+			"importpath": "github.com/golang/protobuf/protoc-gen-go/plugin",
+			"repository": "https://github.com/golang/protobuf",
+			"revision": "ae59567b9aab61b50b2590679a62c3c044030b61",
+			"branch": "master",
+			"path": "/protoc-gen-go/plugin"
+		},
+		{
 			"importpath": "github.com/golang/protobuf/ptypes",
 			"repository": "https://github.com/golang/protobuf",
 			"revision": "17ce1425424ab154092bbb43af630bd647f3bb0d",
 			"branch": "master",
 			"path": "/ptypes"
+		},
+		{
+			"importpath": "github.com/grpc-ecosystem/grpc-gateway",
+			"repository": "https://github.com/grpc-ecosystem/grpc-gateway",
+			"revision": "8bec008bd140852468324fdd069ed8e38d37a963",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/rogpeppe/fastuuid",
+			"repository": "https://github.com/rogpeppe/fastuuid",
+			"revision": "6724a57986aff9bff1a1770e9347036def7c89f6",
+			"branch": "master"
 		},
 		{
 			"importpath": "github.com/sirupsen/logrus",
@@ -112,6 +151,13 @@
 			"path": "/lex/httplex"
 		},
 		{
+			"importpath": "golang.org/x/net/publicsuffix",
+			"repository": "https://go.googlesource.com/net",
+			"revision": "8351a756f30f1297fe94bbf4b767ec589c6ea6d0",
+			"branch": "master",
+			"path": "/publicsuffix"
+		},
+		{
 			"importpath": "golang.org/x/net/trace",
 			"repository": "https://go.googlesource.com/net",
 			"revision": "b129b8e0fbeb39c8358e51a07ab6c50ad415e72e",
@@ -158,6 +204,13 @@
 			"revision": "acd49d43e9b95df46670431bf5c7ae59586daad8",
 			"branch": "master",
 			"path": "/unicode/norm"
+		},
+		{
+			"importpath": "google.golang.org/genproto/googleapis/api/annotations",
+			"repository": "https://github.com/google/go-genproto",
+			"revision": "1e559d0a00eef8a9a43151db4665280bd8dd5886",
+			"branch": "master",
+			"path": "/googleapis/api/annotations"
 		},
 		{
 			"importpath": "google.golang.org/genproto/googleapis/rpc/status",

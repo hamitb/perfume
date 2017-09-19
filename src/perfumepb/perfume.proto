@@ -1,6 +1,9 @@
 syntax = "proto3";
-package perfumepb;
+package perfume.v1;
 import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+
+option go_package = "perfumepb";
 
 message Entry {
   string id = 1 [(gogoproto.moretags) = "bson:\"_id,omitempty\""];
@@ -22,9 +25,33 @@ message EntryListResponse {
 }
 
 service PerfumeService{
-  rpc CreateEntry(Entry) returns (Entry) {}
-  rpc DeleteEntry(Entry) returns (Entry) {}
-  rpc UpdateEntry(Entry) returns (Entry) {}
-  rpc GetEntryList(GetEntryListReq) returns (EntryListResponse) {}
-  rpc GetEntry(GetEntryReq) returns (Entry) {}
+  rpc CreateEntry(Entry) returns (Entry) {
+    option (google.api.http) = {
+      post: "/api/v1/entry/create"
+    };
+  }
+  rpc DeleteEntry(Entry) returns (Entry) {
+    option (google.api.http) = {
+      post: "/api/v1/entry/delete"
+      body: "*"
+    };
+  }
+  rpc UpdateEntry(Entry) returns (Entry) {
+    option (google.api.http) = {
+      post: "/api/v1/entry/update"
+      body: "*"
+    };
+  }
+  rpc GetEntryList(GetEntryListReq) returns (EntryListResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/entry/list"
+      body: "*"
+    };
+  }
+  rpc GetEntry(GetEntryReq) returns (Entry) {
+    option (google.api.http) = {
+      post: "/api/v1/entry/get/{id}"
+      body: "*"
+    };
+  }
 }

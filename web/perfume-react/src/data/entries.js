@@ -11,7 +11,7 @@ const entries = [
   },
   {
     "id": "2",
-    "title": "Twitter first!",
+    "title": "Twitter second!",
     "link": "http://twitter.com",
     "created_at": 123125,
     "labels": [
