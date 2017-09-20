@@ -4,6 +4,7 @@ import (
 	"flag"
 	"net/http"
 
+	"github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
 
 	gw "perfumepb"
@@ -29,6 +30,8 @@ func run() error {
 	if err != nil {
 		return err
 	}
+
+	logrus.Infoln("Binding 8081 for Gateway...")
 
 	return http.ListenAndServe(":8081", mux)
 }

@@ -69,11 +69,26 @@ export class PerfumeServiceService {
 	  this.headerEditors[i].edit(_headers);
 	}
 	const _init = {
-	  method: 'POST',
+	  method: 'DELETE',
 	  headers: _headers,
-	  body: JSON.stringify(entry),
+	  body: undefined,
 	} as RequestInit;
 	
+	if(entry.id){
+		_query.append("id", `${entry.id}`)
+	}
+	if(entry.createdAt){
+		_query.append("created_at", `${entry.createdAt}`)
+	}
+	if(entry.link){
+		_query.append("link", `${entry.link}`)
+	}
+	if(entry.title){
+		_query.append("title", `${entry.title}`)
+	}
+	if(entry.labels){
+		_query.append("labels", `${entry.labels}`)
+	}
 	const _req = new Request(`${this.host}/api/v1/entry/delete`, _init);
 	try {
 	  const resp = await fetch(_req);
@@ -95,7 +110,7 @@ export class PerfumeServiceService {
 	  this.headerEditors[i].edit(_headers);
 	}
 	const _init = {
-	  method: 'POST',
+	  method: 'PUT',
 	  headers: _headers,
 	  body: JSON.stringify(entry),
 	} as RequestInit;
@@ -121,9 +136,9 @@ export class PerfumeServiceService {
 	  this.headerEditors[i].edit(_headers);
 	}
 	const _init = {
-	  method: 'POST',
+	  method: 'GET',
 	  headers: _headers,
-	  body: "{}",
+	  body: undefined,
 	} as RequestInit;
 	
 	const _req = new Request(`${this.host}/api/v1/entry/list`, _init);
@@ -147,9 +162,9 @@ export class PerfumeServiceService {
 	  this.headerEditors[i].edit(_headers);
 	}
 	const _init = {
-	  method: 'POST',
+	  method: 'GET',
 	  headers: _headers,
-	  body: "{}",
+	  body: undefined,
 	} as RequestInit;
 	
 	const _req = new Request(`${this.host}/api/v1/entry/get/${id}`, _init);

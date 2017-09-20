@@ -32,26 +32,22 @@ service PerfumeService{
   }
   rpc DeleteEntry(Entry) returns (Entry) {
     option (google.api.http) = {
-      post: "/api/v1/entry/delete"
-      body: "*"
+      delete: "/api/v1/entry/delete"
     };
   }
   rpc UpdateEntry(Entry) returns (Entry) {
     option (google.api.http) = {
-      post: "/api/v1/entry/update"
-      body: "*"
+      put: "/api/v1/entry/update"
     };
   }
   rpc GetEntryList(GetEntryListReq) returns (EntryListResponse) {
     option (google.api.http) = {
-      post: "/api/v1/entry/list"
-      body: "*"
+      get: "/api/v1/entry/list"
     };
   }
   rpc GetEntry(GetEntryReq) returns (Entry) {
     option (google.api.http) = {
-      post: "/api/v1/entry/get/{id}"
-      body: "*"
+      get: "/api/v1/entry/get/{id}"
     };
   }
 }
