@@ -3,6 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/actionCreators';
 
+import Button from 'material-ui/Button';
+
 function mapStateToProps(state) {
   return {
     entries: state.entries,
@@ -15,14 +17,11 @@ function mapDispatchToProps(dispatch) {
 
 class Main extends Component {
   render() {
-    const { entries } = this.props;
     return (
       <div>
-        {entries.map( (entry) => {
-          return(
-            <h2 key={entry.id}>{entry.title}</h2>
-          )
-        })}
+        <Button onClick={() => this.props.getEntryList()}>
+          Hello World
+        </Button>
       </div>
     );
   }

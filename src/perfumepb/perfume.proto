@@ -32,7 +32,7 @@ service PerfumeService{
   }
   rpc DeleteEntry(Entry) returns (Entry) {
     option (google.api.http) = {
-      delete: "/api/v1/entry/delete"
+      put: "/api/v1/entry/delete"
     };
   }
   rpc UpdateEntry(Entry) returns (Entry) {

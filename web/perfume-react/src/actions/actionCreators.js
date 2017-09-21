@@ -6,3 +6,11 @@ export function addEntry(entry) {
     ...entry,
   };
 }
+
+// getEntryList
+export function getEntryList() {
+  console.log('---getEntryList action---');
+  return {
+    type: "GET_ENTRY_LIST",
+  }
+}
