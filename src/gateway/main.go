@@ -11,6 +11,7 @@ import (
 
 	"github.com/golang/glog"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
+	"github.com/rs/cors"
 	"golang.org/x/net/context"
 )
 
@@ -19,6 +20,12 @@ var (
 )
 
 func run() error {
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"*"},
+		AllowedMethods:   []string{"GET", "PUT", "POST", "DELETE"},
+		AllowCredentials: true,
+	})
+
 	ctx := context.Background()
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()
@@ -33,7 +40,7 @@ func run() error {
 
 	logrus.Infoln("Binding 8081 for Gateway...")
 
-	return http.ListenAndServe(":8081", mux)
+	return http.ListenAndServe(":8081", c.Handler(mux))
 }
 
 func main() {

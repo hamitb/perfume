@@ -1,4 +1,5 @@
-import { PerfumeServiceService } from '../perfume.pb.ts';
+import { PerfumeServiceService } from '../perfume.pb';
 
-export const Service = new PerfumeServiceService('localhost:8081');
-// export const Service = "hey";
+const Service = new PerfumeServiceService('http://localhost:8081');
+
+export default Service;
