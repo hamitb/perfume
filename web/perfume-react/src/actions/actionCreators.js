@@ -3,14 +3,15 @@ export function addEntry(entry) {
   console.log('---addEntry action---');
   return {
     type: "ADD_ENTRY",
-    ...entry,
+    entry: entry,
   };
 }
 
-// getEntryList
-export function getEntryList() {
-  console.log('---getEntryList action---');
+// setEntryList
+export function setEntryList(entryList) {
+  console.log('---setEntryList action---');
   return {
-    type: "GET_ENTRY_LIST",
+    type: "SET_ENTRY_LIST",
+    entryList: entryList,
   }
 }
