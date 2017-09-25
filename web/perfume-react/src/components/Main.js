@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/actionCreators';
 import Service from '../components/Service';
-import Button from 'material-ui/Button';
+import { Button, Typography } from 'material-ui';
 
 function mapStateToProps(state) {
   return {
@@ -34,14 +34,20 @@ class Main extends Component {
   render() {
     const { entries } = this.props;
     
+    const exampleEntry = {
+      title: "JS: Promises",
+      link: "something.com",
+      labels: [ "label1", "label2" ],
+    };
+    
     return (
       <div>
-        <Button onClick={() => this.props.addEntry()}>
+        <Button onClick={() => this.props.addEntry(exampleEntry)}>
           Hello World
         </Button>
         { entries.map((entry) => {
           return (
-            <h2 key={entry.id}>{entry.title}</h2>
+            <Typography key={entry.id} type="headline">{entry.title}</Typography>
           );
         })}
       </div>
