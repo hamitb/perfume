@@ -15,32 +15,19 @@ function mapDispatchToProps(dispatch) {
 }
 
 class Main extends Component {
-  
-  componentWillMount() {
-    // this.fetchEntries();
-  }
-
-  async fetchEntries() {
-    try {
-      // const { entries } = await Service.getEntryList()
-    } catch (err) {
-      console.log("components/main.js: Error on fetching entries");
-    }
-  }
-
   render() {
     const { entries } = this.props;
     
     const exampleEntry = {
-      title: "JS: Promises",
-      link: "something.com",
-      labels: [ "label1", "label2" ],
+      "title": "JS: Promises",
+      "link": "something.com",
+      "labels": [ "label1", "label2" ],
     };
     
     return (
       <div>
-        <Button onClick={() => this.props.addEntry(exampleEntry)}>
-          Hello World
+        <Button onClick={() => this.props.addEntryAsync(exampleEntry)}>
+          ADD ENTRY
         </Button>
         { entries.map((entry) => {
           return (

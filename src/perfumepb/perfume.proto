@@ -28,16 +28,19 @@ service PerfumeService{
   rpc CreateEntry(Entry) returns (Entry) {
     option (google.api.http) = {
       post: "/api/v1/entry/create"
+      body: "*"
     };
   }
   rpc DeleteEntry(Entry) returns (Entry) {
     option (google.api.http) = {
       put: "/api/v1/entry/delete"
+      body: "*"
     };
   }
   rpc UpdateEntry(Entry) returns (Entry) {
     option (google.api.http) = {
       put: "/api/v1/entry/update"
+      body: "*"
     };
   }
   rpc GetEntryList(GetEntryListReq) returns (EntryListResponse) {

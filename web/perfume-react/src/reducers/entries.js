@@ -3,7 +3,10 @@ function entries(state = [], action) {
     case 'RECEIVE_ENTRIES':
       return action.entryList;
     case 'ADD_ENTRY':
-      return state;
+      return [
+        ...state,
+        action.entry,
+      ];
     default:
       return state;
   }
