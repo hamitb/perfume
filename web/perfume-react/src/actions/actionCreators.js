@@ -1,3 +1,5 @@
+import Service from '../components/Service';
+
 // addEntry
 export function addEntry(entry) {
   console.log('---addEntry action---');
@@ -8,10 +10,19 @@ export function addEntry(entry) {
 }
 
 // setEntryList
-export function setEntryList(entryList) {
-  console.log('---setEntryList action---');
+export const receiveEntries = (entryList) => {
+  console.log('---receiveEntries action---');
   return {
-    type: "SET_ENTRY_LIST",
+    type: "RECEIVE_ENTRIES",
     entryList: entryList,
   }
+}
+
+export const getAllEntries = () => dispatch => {
+  console.log("I'm here");
+  Service.getEntryList().then(response => {
+    const entryList = response.entries;
+
+    dispatch(receiveEntries(entryList));
+  })
 }

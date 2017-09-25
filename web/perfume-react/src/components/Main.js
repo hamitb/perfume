@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/actionCreators';
-import Service from '../components/Service';
 import { Button, Typography } from 'material-ui';
 
 function mapStateToProps(state) {
@@ -18,16 +17,14 @@ function mapDispatchToProps(dispatch) {
 class Main extends Component {
   
   componentWillMount() {
-    this.fetchEntries();
+    // this.fetchEntries();
   }
 
   async fetchEntries() {
     try {
-      const { entries } = await Service.getEntryList()
-      this.props.setEntryList(entries);
+      // const { entries } = await Service.getEntryList()
     } catch (err) {
       console.log("components/main.js: Error on fetching entries");
-      this.props.setEntryList([]);
     }
   }
 
