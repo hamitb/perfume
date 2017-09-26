@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/actionCreators';
-import { Button, Typography } from 'material-ui';
+import { Button, Typography, TextField } from 'material-ui';
 
 function mapStateToProps(state) {
   return {
@@ -16,6 +16,8 @@ function mapDispatchToProps(dispatch) {
 
 class Main extends Component {
   render() {
+    let input;
+
     const { entries } = this.props;
     
     const exampleEntry = {
@@ -26,12 +28,25 @@ class Main extends Component {
     
     return (
       <div>
-        <Button onClick={() => this.props.addEntryAsync(exampleEntry)}>
+        <Button color="primary" onClick={() => this.props.addEntryAsync(exampleEntry)}>
           ADD ENTRY
         </Button>
         { entries.map((entry) => {
           return (
-            <Typography key={entry.id} type="headline">{entry.title}</Typography>
+            <div key={entry.id}>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <Typography type="headline" onClick={() => this.props.getEntry(entry.id)}>{entry.title}</Typography>
+                <form onSubmit={e => {
+                  e.preventDefault();
+                }}>
+                  <TextField ref={node => {input = node}} id="title" placeholder="New Title"/>
+                  <Button type="submit" color="accent">Update Title</Button>
+                </form>
+              </div>
+              <ul>
+                {entry.labels.map(label => <li key={label}>{label}</li>)}
+              </ul>
+            </div>
           );
         })}
       </div>

@@ -9,9 +9,17 @@ import store, { history } from './store';
 import { getAllEntries } from './actions/actionCreators';
 
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import { purple, green, red} from 'material-ui/colors';
 
 const theme = createMuiTheme({
-
+  palette: {
+    primary: purple,
+    secondary: {
+      ...green,
+      A400: '#00e677',
+    },
+    error: red,
+  },
 });
 
 console.log("hey");
