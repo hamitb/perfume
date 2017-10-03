@@ -22,7 +22,6 @@ const theme = createMuiTheme({
   },
 });
 
-console.log("hey");
 store.dispatch(getAllEntries());
 
 const router = (

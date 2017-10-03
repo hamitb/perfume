@@ -15,9 +15,12 @@ function mapDispatchToProps(dispatch) {
 }
 
 class Main extends Component {
-  render() {
-    let input;
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.refs);
+  }
 
+  render() {
     const { entries } = this.props;
     
     const exampleEntry = {
@@ -36,10 +39,8 @@ class Main extends Component {
             <div key={entry.id}>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <Typography type="headline" onClick={() => this.props.getEntry(entry.id)}>{entry.title}</Typography>
-                <form onSubmit={e => {
-                  e.preventDefault();
-                }}>
-                  <TextField ref={node => {input = node}} id="title" placeholder="New Title"/>
+                <form ref="testForm" onSubmit={this.handleSubmit}>
+                  <input ref="title" placeholder="New Title"/>
                   <Button type="submit" color="accent">Update Title</Button>
                 </form>
               </div>
